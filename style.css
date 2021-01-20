@@ -4,6 +4,6 @@ table {
 td {
   border: 5px solid black;
 };
-body {
-  background-color: red;
+tr {
+  border: 5px solid black;
 };
