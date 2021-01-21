@@ -1,3 +1,5 @@
+
+/* for sales page */
 table {
   border: 1px solid black;
 }
@@ -16,3 +18,51 @@ thead {
 th {
   border: 1px solid black;
 }
+
+/* end of sales page */
+
+/* for index page */
+
+
+body {
+  background-image: url("salmon.png"), url("salmon-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100%;
+  
+}
+header {
+   color: black;
+   text-align: center;
+   text-shadow: 2px 2px chocolate;
+   margin-top: 100px;
+
+ }
+ h2 {
+   color: chartreuse;
+
+ }
+ img {
+   height: 400px;
+   width: 400px;
+ }
+ #a {
+   display: grid;
+   grid-template-columns: 400px 400px 400px;
+   grid-gap: 20px;
+   height:450px;
+   margin: 30px;
+ }
+ #b {
+   display: grid;
+   grid-template-columns: 400px 400px;
+   height: 450px;
+   margin: 30px;
+   margin-top: 90px;
+
+ }
+ p {
+   color: crimson;
+   text-shadow: 1px 1px black;
+   font-size: large;
+ }
