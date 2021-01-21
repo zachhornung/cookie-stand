@@ -5,6 +5,7 @@ var maxCustomersIndex = [65, 24, 38, 38, 16];
 var avgCookiePerSaleIndex = [6.3, 1.2, 3.7, 2.3, 4.6];
 var hoursOpen = ['6am ', '7am ', '8am ', '9am ', '10am ', '11am ', '12pm ', '1pm ', '2pm ', '3pm ', '4pm ', '5pm ', '6pm ', '7pm ', 'Daily Location Total: '];
 
+
 function Store(location, minCustomers, maxCustomers, avgCookiePerSale){
   this.location = location;
   this.minCustomers = minCustomers;
@@ -64,9 +65,33 @@ for (var i = 0; i < hoursOpen.length; i ++){
   timeOfDayHeaders.textContent = hoursOpen[i];
 };
 
-var tableFooter = document.createElement('tfoot');
-tableElement.appendChild(tableFooter);
-tableFooter.textContent = 'Totals';
+var tableFootThatStaysPut = document.createElement('tfoot');
+var totalsLeftFoot = document.createElement('tr');
+var footerTotals = document.createElement('td');
+footerTotals.textContent = 'Totals'
+totalsLeftFoot.appendChild(footerTotals);
+
+// totalsLeftFoot.textContent = 'Totals';
+tableElement.appendChild(tableFootThatStaysPut);
+tableFootThatStaysPut.appendChild(totalsLeftFoot);
+
+var hourlyTotalPerStore = [];
+var dummyHourlyTotal = 0;
+var totalOfTotals = 0;
+function tableFootPrint(){
+  for (var i = 0; i < hoursOpen.length; i++){
+    dummyHourlyTotal = 0;
+    for (var j = 0; j < stores.length; j++){
+      dummyHourlyTotal += stores[j].cookiesPerHour[i];
+      totalOfTotals += stores[j].cookiesPerHour[i];
+    };
+    var tdFoot = document.createElement('td');
+      tdFoot.textContent = dummyHourlyTotal;
+      totalsLeftFoot.appendChild(tdFoot);
+  }
+  
+}
+
 
 //this function prints city info as a row in the table
 function printToTable(city){
@@ -74,7 +99,9 @@ function printToTable(city){
   var tableHeader = document.createElement('th'); //make a table header
   tableHeader.textContent = city.location; //heres what the text content of the table header is
   var tableRow = document.createElement('tr');//make a new table row
-  tableElement.appendChild(tableRow);
+  var tableBody = document.createElement('tbody');
+  tableElement.appendChild(tableBody)
+  tableBody.appendChild(tableRow);
   tableRow.appendChild(tableHeader)
    for (var i = 0; i < city.cookiesPerHour.length; i ++){  //take each index in the cookies per hour array and cycle through it
      var tdOne = document.createElement('td'); //each time you cycle through, make a new table data element
@@ -109,8 +136,10 @@ lima.calculateTotalCookies();
 printCityInfo(lima);
 printToTable(lima);
 
+var stores = [seattle, tokyo, dubai, paris, lima];
 
-
+// hourlyTotals();
+tableFootPrint();
 
 // var cookieInfo = {
 //   location: ['Seattle', 'Tokyo', 'Dubai', 'Paris', 'Lima'],

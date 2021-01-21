@@ -1,9 +1,18 @@
 table {
-  border: 5px solid black;
-};
+  border: 1px solid black;
+}
 td {
-  border: 5px solid black;
-};
+  border: 1px solid black;
+}
 tr {
-  border: 5px solid black;
-};
+  border: 1px solid black;
+}
+tbody {
+  border: 1px solid black;
+}
+thead {
+  border: 1px solid black;
+}
+th {
+  border: 1px solid black;
+}
