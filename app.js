@@ -5,7 +5,6 @@ var maxCustomersIndex = [65, 24, 38, 38, 16];
 var avgCookiePerSaleIndex = [6.3, 1.2, 3.7, 2.3, 4.6];
 var hoursOpen = ['6am ', '7am ', '8am ', '9am ', '10am ', '11am ', '12pm ', '1pm ', '2pm ', '3pm ', '4pm ', '5pm ', '6pm ', '7pm ', 'Daily Location Total: '];
 
-
 function Store(location, minCustomers, maxCustomers, avgCookiePerSale){
   this.location = location;
   this.minCustomers = minCustomers;
@@ -28,11 +27,10 @@ Store.prototype.calculateTotalCookies = function(){
     this.totalCookies = (cityTotal + this.totalCookies);
     this.cookiesPerHour.push(cityTotal)
   };
-  this.cookiesPerHour.push(this.totalCookies)
+  this.cookiesPerHour.push(this.totalCookies);
   console.log(this.cookiesPerHour);
 };
 
-//this function prints city info as a list under the section element
 function printCityInfo(city){
   var sectionElement = document.getElementById('shops');
   var h2Element = document.createElement('h2');
@@ -48,9 +46,6 @@ function printCityInfo(city){
   };
 };
 
-
-
-// this makes all the headers for time of day. they should be to the left of the blank spot in the upper left hand corner
 var tableElement = document.getElementById('table');
 var tableHeadThatStaysPut = document.createElement('thead');
 var blankLeftHead = document.createElement('th');
@@ -78,7 +73,7 @@ tableFootThatStaysPut.appendChild(totalsLeftFoot);
 var hourlyTotalPerStore = [];
 var dummyHourlyTotal = 0;
 var totalOfTotals = 0;
-function tableFootPrint(){
+function tableFootPrint(footerR){
   for (var i = 0; i < hoursOpen.length; i++){
     dummyHourlyTotal = 0;
     for (var j = 0; j < stores.length; j++){
@@ -87,22 +82,19 @@ function tableFootPrint(){
     };
     var tdFoot = document.createElement('td');
       tdFoot.textContent = dummyHourlyTotal;
-      totalsLeftFoot.appendChild(tdFoot);
-  }
-  
-}
+      footerR.appendChild(tdFoot);
+  };
+};
 
-
-//this function prints city info as a row in the table
 function printToTable(city){
   var tableElement = document.getElementById('table'); //hey javascript heres where the table is
   var tableHeader = document.createElement('th'); //make a table header
   tableHeader.textContent = city.location; //heres what the text content of the table header is
   var tableRow = document.createElement('tr');//make a new table row
   var tableBody = document.createElement('tbody');
-  tableElement.appendChild(tableBody)
+  tableElement.appendChild(tableBody);
   tableBody.appendChild(tableRow);
-  tableRow.appendChild(tableHeader)
+  tableRow.appendChild(tableHeader);
    for (var i = 0; i < city.cookiesPerHour.length; i ++){  //take each index in the cookies per hour array and cycle through it
      var tdOne = document.createElement('td'); //each time you cycle through, make a new table data element
      tdOne.textContent = city.cookiesPerHour[i]; //make the text content of that data element equal to whatever index position the loop is on in the cookies per hour of the selected city
@@ -138,8 +130,49 @@ printToTable(lima);
 
 var stores = [seattle, tokyo, dubai, paris, lima];
 
-// hourlyTotals();
-tableFootPrint();
+tableFootPrint(totalsLeftFoot);
+
+var formElement = document.getElementById('store-form');
+
+formElement.addEventListener('submit', function (event){
+  event.preventDefault();
+  console.log(event.target.location.value);
+  console.log(event.target.minCustPerHour.value);
+  console.log(event.target.maxCustPerHour.value);
+  console.log(event.target.avgCookPerSale.value);
+
+  var location = event.target.location.value;
+  var minCustPerHour = parseInt(event.target.minCustPerHour.value);
+  var maxCustPerHour = parseInt(event.target.maxCustPerHour.value);
+  var avgCookPerSale = parseInt(event.target.avgCookPerSale.value);
+
+  locationIndex.push(location);
+  minCustomersIndex.push(minCustPerHour);
+  maxCustomersIndex.push(maxCustPerHour);
+  avgCookiePerSaleIndex.push(avgCookPerSale);
+
+  console.log(avgCookiePerSaleIndex);
+  var storeFromEvent = new Store(locationIndex[5], minCustomersIndex[5], maxCustomersIndex[5], avgCookiePerSaleIndex[5]);
+
+  stores.push(storeFromEvent);
+  console.log(stores);
+  storeFromEvent.calculateTotalCookies();
+  printCityInfo(storeFromEvent);
+  printToTable(storeFromEvent);
+  
+  tableFootThatStaysPut.removeChild(tableFootThatStaysPut.childNodes[0]);
+  var newTotalsLeft = document.createElement('tr');
+  newTotalsLeft.textContent = 'totals'
+  tableFootThatStaysPut.appendChild(newTotalsLeft);
+  tableFootPrint(newTotalsLeft);
+});
+
+
+
+
+
+
+
 
 // var cookieInfo = {
 //   location: ['Seattle', 'Tokyo', 'Dubai', 'Paris', 'Lima'],

@@ -1,6 +1,7 @@
 
 /* for sales page */
 table {
+  text-shadow: black;
   border: 1px solid black;
 }
 td {
@@ -38,22 +39,22 @@ header {
    margin-top: 100px;
 
  }
- h2 {
+h2 {
    color: chartreuse;
 
  }
- img {
+img {
    height: 400px;
    width: 400px;
  }
- #a {
+#a {
    display: grid;
    grid-template-columns: 400px 400px 400px;
    grid-gap: 20px;
    height:450px;
    margin: 30px;
  }
- #b {
+#b {
    display: grid;
    grid-template-columns: 400px 400px;
    height: 450px;
@@ -61,8 +62,21 @@ header {
    margin-top: 90px;
 
  }
- p {
+p {
    color: crimson;
    text-shadow: 1px 1px black;
    font-size: large;
  }
+#store-form {
+   color:cyan;
+   width: 700px;
+   height: 700px;
+   border: thin purple 5px;
+ }
+label {
+  float: left;
+}
+table {
+  color:rgb(21, 196, 108);
+  text-shadow: darkslategrey;
+}
