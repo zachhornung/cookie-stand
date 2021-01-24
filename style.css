@@ -1,8 +1,10 @@
 
 /* for sales page */
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
 table {
   text-shadow: black;
   border: 1px solid black;
+  background-color: khaki;
 }
 td {
   border: 1px solid black;
@@ -26,21 +28,22 @@ th {
 
 
 body {
-  background-image: url("salmon.png"), url("salmon-background.jpg");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: 100%;
+  background-color: blanchedalmond;
   
 }
 header {
-   color: black;
+   color: rgb(73, 73, 73);
    text-align: center;
    text-shadow: 2px 2px chocolate;
-   margin-top: 100px;
+   margin-top: 10px;
+   font-family: 'UnifrakturCook', cursive;
 
  }
 h2 {
-   color: chartreuse;
+   color: black;
 
  }
 img {
@@ -48,27 +51,33 @@ img {
    width: 400px;
  }
 #a {
-   display: grid;
-   grid-template-columns: 400px 400px 400px;
-   grid-gap: 20px;
-   height:450px;
-   margin: 30px;
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  margin: 30px;
+  margin-top: 90px;
+  grid-gap: 30px;
+  background-color:chocolate;
+  padding: 10px;
+  padding-bottom: 40px;
+  justify-content: center;
  }
 #b {
    display: grid;
-   grid-template-columns: 400px 400px;
-   height: 450px;
+   grid-template-columns: 400px 400px 400px;
    margin: 30px;
-   margin-top: 90px;
-
+   margin-bottom: 20px;
+   grid-gap: 30px;
+   background-color:chocolate;
+   padding: 10px;
+   padding-bottom: 40px;
+   justify-content: center;
  }
 p {
-   color: crimson;
-   text-shadow: 1px 1px black;
+   color: black;
    font-size: large;
  }
 #store-form {
-   color:cyan;
+   color:black;
    width: 700px;
    height: 700px;
    border: thin purple 5px;
@@ -77,6 +86,16 @@ label {
   float: left;
 }
 table {
-  color:rgb(21, 196, 108);
+  color:red;
   text-shadow: darkslategrey;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+section {
+  font-family: 'Times New Roman', Times, serif
+}
+header {
+  background-image: url('salmon.png');
+  height:250px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
