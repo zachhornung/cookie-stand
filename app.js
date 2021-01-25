@@ -65,8 +65,6 @@ var totalsLeftFoot = document.createElement('tr');
 var footerTotals = document.createElement('td');
 footerTotals.textContent = 'Totals'
 totalsLeftFoot.appendChild(footerTotals);
-
-// totalsLeftFoot.textContent = 'Totals';
 tableElement.appendChild(tableFootThatStaysPut);
 tableFootThatStaysPut.appendChild(totalsLeftFoot);
 
@@ -152,7 +150,9 @@ formElement.addEventListener('submit', function (event){
   avgCookiePerSaleIndex.push(avgCookPerSale);
 
   console.log(avgCookiePerSaleIndex);
-  var storeFromEvent = new Store(locationIndex[5], minCustomersIndex[5], maxCustomersIndex[5], avgCookiePerSaleIndex[5]);
+  for (var i = 0; i < locationIndex.length; i++) {
+    var storeFromEvent = new Store(locationIndex[i], minCustomersIndex[i], maxCustomersIndex[i], avgCookiePerSaleIndex[i]);
+  };
 
   stores.push(storeFromEvent);
   console.log(stores);
@@ -162,7 +162,7 @@ formElement.addEventListener('submit', function (event){
   
   tableFootThatStaysPut.removeChild(tableFootThatStaysPut.childNodes[0]);
   var newTotalsLeft = document.createElement('tr');
-  newTotalsLeft.textContent = 'totals'
+  newTotalsLeft.textContent = 'Totals'
   tableFootThatStaysPut.appendChild(newTotalsLeft);
   tableFootPrint(newTotalsLeft);
 });

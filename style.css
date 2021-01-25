@@ -21,6 +21,22 @@ thead {
 th {
   border: 1px solid black;
 }
+tfoot tr {
+  border: 1px solid black;
+}
+#form-a {
+  display: grid;
+  grid-template-columns: 400px 400px;
+}
+#form-b {
+  display: grid;
+  grid-template-columns: 400px 400px;
+}
+input {
+  float: right;
+}
+
+
 
 /* end of sales page */
 
@@ -41,6 +57,12 @@ header {
    margin-top: 10px;
    font-family: 'UnifrakturCook', cursive;
 
+ }
+ h1 {
+  color: rgb(73, 73, 73);
+  text-align: center;
+  text-shadow: 2px 2px chocolate;
+  background-color: coral;
  }
 h2 {
    color: black;
