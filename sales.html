@@ -2,10 +2,40 @@
 <html>
   <head>
     <title>Sales Page</title>
-    <link rel="stylesheet" type="text" ref="style.css">
+    <link rel="stylesheet" type='text/css' href="style.css">
   </head>
   <body>
-    <h1>hello</h1>
+    <a href="index.html">Index Page</a>
+    <h1>Sales Look Great</h1>
+    <table id='table'>
+      
+    </table>
+    <form id="store-form">
+      <fieldset>
+        <h2 id="form-header">Store Form</h2>
+        <div id="form-a">
+          <label>
+            Store City
+            <input type="text" name="location">
+          </label>
+          <label>
+            Minimum Customers Per Hour
+            <input type="number" name="minCustPerHour">
+          </label>
+        </div>
+        <div id="form-b">
+          <label>
+            Maximum Customers Per Hour
+            <input type="number" name="maxCustPerHour">
+          </label>
+          <label>
+            Average Cookies Per Sale
+            <input type="number" name="avgCookPerSale">
+          </label>
+        </div>
+      </fieldset>
+      <button type="submit">Submit New Store</button>
+    </form>
     <main>
       <section id='shops'></section>
     </main>
